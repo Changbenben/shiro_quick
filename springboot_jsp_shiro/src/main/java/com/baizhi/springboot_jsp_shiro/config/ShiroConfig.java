@@ -4,6 +4,7 @@ package com.baizhi.springboot_jsp_shiro.config;
 * */
 
 import com.baizhi.springboot_jsp_shiro.shiro.CustomerRealm;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -71,6 +72,14 @@ public class ShiroConfig {
     @Bean
     public Realm getRealm(){
         CustomerRealm customerRealm = new CustomerRealm();
+        //修改凭证校验匹配器
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        //设置加密算法
+        hashedCredentialsMatcher.setHashAlgorithmName("MD5");
+        //设置散列次数
+        hashedCredentialsMatcher.setHashIterations(1024);
+
+        customerRealm.setCredentialsMatcher(hashedCredentialsMatcher);
         return customerRealm;
     }
 }

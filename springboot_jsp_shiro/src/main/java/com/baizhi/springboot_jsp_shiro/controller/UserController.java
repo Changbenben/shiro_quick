@@ -25,6 +25,7 @@ public class UserController {
     @RequestMapping("logout")
     public String logout(){
         SecurityUtils.getSubject().logout();
+        System.out.println("登出");
         return "redirect:/login.jsp";
     }
 
@@ -45,6 +46,7 @@ public class UserController {
         //登录
         try {
             subject.login(token);
+            System.out.println("登陆成功");
         } catch (UnknownAccountException e) {
             e.printStackTrace();
             System.out.println("用户名错误");
