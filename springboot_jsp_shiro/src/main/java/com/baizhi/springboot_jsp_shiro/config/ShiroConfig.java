@@ -33,8 +33,6 @@ public class ShiroConfig {
         //配置系统受限资源
         Map<String, String> map = new HashMap<>();
 
-
-
         //公共资源要在受限资源之前设置
         //anno设置公共资源    请求登录的url也是资源，需要设置为公共
         map.put("/user/login","anon");
