@@ -31,12 +31,11 @@ public class ShiroConfig {
 
         //配置系统受限资源
         Map<String, String> map = new HashMap<>();
-        map.put("/index.jsp", "authc");     //authc 请求这个资源需要认证和授权
+        map.put("/index.jsp", "authc");      //authc 请求这个资源需要认证和授权
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
 
         //默认认证界面路径
         shiroFilterFactoryBean.setLoginUrl("/login.jsp");
-
 
         //配置系统公共资源
 
@@ -64,6 +63,4 @@ public class ShiroConfig {
         CustomerRealm customerRealm = new CustomerRealm();
         return customerRealm;
     }
-
-
 }
