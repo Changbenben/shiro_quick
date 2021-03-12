@@ -37,6 +37,9 @@ public class ShiroConfig {
         //公共资源要在受限资源之前设置
         //anno设置公共资源    请求登录的url也是资源，需要设置为公共
         map.put("/user/login","anon");
+        map.put("/user/regist","anon");
+        map.put("/regist.jsp","anon");
+
         //authc设置受限资源
         map.put("/**.jsp", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);

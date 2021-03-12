@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--找到相应的Dao接口-->
+<mapper namespace="com.baizhi.springboot_jsp_shiro.dao.UserDao">
+    <insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user values(#{id}, #{username}, #{password}, #{salt})
+    </insert>
+
+    <select id="findUserByUsername" parameterType="String" resultType="User">
+        select username,password,salt from t_user
+        where username=#{username}
+    </select>
+</mapper>
+
