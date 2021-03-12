@@ -34,4 +34,9 @@ public class UserTest {
         user.setPassword("test");
         userService.save(user);
     }
+
+    @Test
+    public void findByNameTest(){
+        System.out.println(userDao.findByUsername("zhangsan"));
+    }
 }

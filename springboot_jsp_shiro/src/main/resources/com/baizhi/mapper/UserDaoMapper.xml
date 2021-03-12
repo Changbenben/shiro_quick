@@ -8,7 +8,7 @@
         insert into t_user values(#{id}, #{username}, #{password}, #{salt})
     </insert>
 
-    <select id="findUserByUsername" parameterType="String" resultType="User">
+    <select id="findByUsername" parameterType="String" resultType="User">
         select username,password,salt from t_user
         where username=#{username}
     </select>
